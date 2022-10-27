@@ -42,7 +42,7 @@ function isAnagram(stringA, stringB) {
         return false;
     }
 
-    // convert all characters to lower case and arrays
+    // convert all characters to lower case sorted arrays
     stringA = stringA.toLowerCase();
     stringB = stringB.toLowerCase();
 

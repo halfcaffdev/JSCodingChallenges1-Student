@@ -1,4 +1,4 @@
-//driver function used for display and passing values.
+ //driver function used for display and passing values.
 function findVowels() {
 
     //getting values from the page no need to change.
@@ -25,7 +25,23 @@ function findVowels() {
 
 //takes an string and returns the vowel count and the vowels found as an object.
 function getVowelCount(str) {
-    
-    return {};
+    let vowelCount = 0;
+    let vowels = ["a","e","i","o","u"];
+    let foundVowels = [];   
+
+    str = str.toLowerCase();
+
+    for (let index = 0; index < str.length; index++) {
+        if (vowels.includes(str[index])) {
+            vowelCount++
+            foundVowels.push(str[index]);
+        }
+    }
+    let vowelObj = {
+        vCount : vowelCount,
+        vFound : foundVowels
+    }
+
+    return vowelObj;
 
 }
