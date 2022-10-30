@@ -34,7 +34,45 @@ function checkBrackets() {
 
 //takes an array of strings and returns the longest one. 
 function isBalanced(brackets) {
+    // declare and initialize an array
+    let stack = [];
 
-   return false;
+    // loop over the string
+    for (let i = 0; i < brackets.length; i++) {
+        let item = brackets[i];
 
+       // if current character is a open bracket add to array
+        if (item == '[' || item == '{' || item == '(') {
+            stack.push(item);
+            continue;
+        }
+        // if current character is a close bracket, remove last open character from array
+        else if (item == ']' || item == '}' || item ==')') {
+            
+            if(stack.length == 0){
+                return false;
+            }
+
+            let previousItem = stack.pop();
+            
+            switch (item) {
+                case ')':
+                    if (previousItem != '('){
+                        return false;
+                    }
+                    break;
+                case '}':
+                    if (previousItem != '{'){
+                        return false;
+                    }
+                    break;
+                case ']':
+                    if (previousItem != '['){
+                        return false;
+                    }
+                    break;                    
+            }
+        }
+    };
+    return stack.length == 0;
 }
